@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday</title>
+
+<style>
+/* ---------- GLOBAL ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: black;
+  color: white;
+  overflow: hidden;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.page.active {
+  display: flex;
+}
+
+.space-hint {
+  margin-top: 40px;
+  opacity: 0.7;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+/* ---------- PAGE 1 : TYPEWRITER ---------- */
+#page1 {
+  background: radial-gradient(circle, #180018, #000);
+}
+
+.typewriter {
+  font-size: 2.8rem;
+  letter-spacing: 3px;
+  text-align: center;
+  max-width: 80%;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+/* ---------- PAGE 2 : CAROUSEL ---------- */
+#page2 {
+  background: radial-gradient(circle at top, #120018, #000);
+}
+
+.carousel-title {
+  font-size: 3rem;
+  letter-spacing: 6px;
+  margin-bottom: 50px;
+  text-shadow: 0 0 25px rgba(255,105,180,0.6);
+}
+
+.carousel {
+  display: flex;
+  gap: 25px;
+}
+
+.card {
+  width: 220px;
+  height: 320px;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.4s ease;
+}
+
+
+/* Replace background-image later */
+.card::after {
+  content: "IMAGE";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  opacity: 0.4;
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.08);
+}
+
+.card:hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  box-shadow:
+    0 0 25px rgba(255,105,180,0.6),
+    0 0 60px rgba(0,255,255,0.3);
+}
+
+.card.active {
+  transform: scale(1.15);
+  z-index: 10;
+}
+
+/* ---------- PAGE 3 : QR ---------- */
+#page3 {
+  background: radial-gradient(circle, #000, #050505);
+}
+
+.qr-box {
+  width: 260px;
+  height: 260px;
+  border-radius: 20px;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Glow behind QR */
+.qr-box::before {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  border-radius: 30px;
+  background: radial-gradient(circle, rgba(255,105,180,0.5), transparent 70%);
+  filter: blur(20px);
+}
+
+/* Placeholder text */
+.qr-box span {
+  opacity: 0.4;
+}
+.qr-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #111;
+}
+
+.qr-container {
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 50px rgba(255, 0, 255, 0.6); /* Glow effect */
+}
+
+.qr-container img {
+  width: 250px; /* Adjust size as needed */
+  height: 250px;
+  display: block;
+  border-radius: 15px;
+}
+
+.carousel .card {
+  width: 300px;       /* You can adjust width */
+  height: 400px;      /* Adjust height to match your images */
+  background-size: cover;       /* Makes sure image covers the card */
+  background-position: center;  /* Centers the image */
+  border-radius: 15px;          /* Rounded corners */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* subtle glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.5); /* stronger glow on hover */
+}
+.carousel .card::before,
+.carousel .card::after {
+  content: none !important;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
+  <div class="typewriter">
+    <span id="text"></span><span class="cursor">|</span>
+  </div>
+  <div class="space-hint">Press SPACE to continue</div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+  <h1 class="carousel-title">HAPPY MOMENTS</h1>
+
+  <div class="carousel">
+    <div class="card" style="background-image: url('images/IMG-20251215-WA0002.jpg')"></div>
+    <div class="card" style="background-image: url('images/IMG-20251215-WA0003.jpg')"></div>
+    <div class="card" style="background-image: url('images/IMG-20251215-WA0005.jpg')"></div>
+    <div class="card" style="background-image: url('images/IMG-20251215-WA0007.jpg')"></div>
+    <div class="card" style="background-image: url('images/IMG-20251215-WA0008.jpg')"></div>
+    
+</div>
+
+  <div class="space-hint">Press SPACE to continue</div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="qr-page">
+  <div class="qr-container">
+    <!-- Replace the src below with your QR code image -->
+    <img src="images/scan this.png" alt="QR Code">
+  </div>
+</section>
+
+
+<script>
+/* ---------- PAGE CONTROL ---------- */
+let currentPage = 1;
+const totalPages = 3;
+
+function showPage(n) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById(`page${n}`).classList.add("active");
+}
+
+document.addEventListener("keydown", e => {
+  if (e.code === "Space") {
+    if (currentPage < totalPages) {
+      currentPage++;
+      showPage(currentPage);
+    }
+  }
+});
+
+/* ---------- TYPEWRITER ---------- */
+const text = "HAPPY BIRTHDAY 💖";
+let index = 0;
+
+function type() {
+  if (index < text.length) {
+    document.getElementById("text").innerHTML += text.charAt(index);
+    index++;
+    setTimeout(type, 120);
+  }
+}
+type();
+
+/* ---------- CAROUSEL CLICK ---------- */
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", () => {
+    document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+    card.classList.add("active");
+  });
+});
+</script>
+
+</body>
+</html>
